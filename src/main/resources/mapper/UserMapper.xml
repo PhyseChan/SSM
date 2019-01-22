@@ -38,4 +38,9 @@
     from user
     WHERE  name= #{username};
   </select>
+  <select id="selectUserBypage" resultType="core.bean.User">
+    select  *
+    from test.user
+    order by id
+  </select>
 </mapper>

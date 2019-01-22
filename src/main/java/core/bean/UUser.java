@@ -1,7 +1,9 @@
 package core.bean;
 
-import java.util.Date;
+import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+@Repository("UUser")
 public class UUser {
     /**
      *

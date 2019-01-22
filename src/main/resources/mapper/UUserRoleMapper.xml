@@ -25,4 +25,9 @@
     select uid, rid
     from u_user_role
   </select>
+  <select id="selectItemBypage" resultType="core.bean.UUserRole">
+    select *
+    from u_user_role
+    order by uid
+  </select>
 </mapper>

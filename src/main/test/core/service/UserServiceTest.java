@@ -1,5 +1,7 @@
 package core.service;
 
+import com.github.pagehelper.PageInfo;
+import core.bean.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +22,11 @@ public class UserServiceTest {
     @Test
     public void getUserByName() {
         assertEquals(userService.getUserByName("lee").getName(),"lee");
+    }
+
+    @Test
+    public void getUserpage(){
+        PageInfo<User> users=userService.selectUserByPage(2,3);
+        System.out.println(users.getSize());
     }
 }
