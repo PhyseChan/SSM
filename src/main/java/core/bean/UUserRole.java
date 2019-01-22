@@ -1,5 +1,8 @@
 package core.bean;
 
+import org.springframework.stereotype.Repository;
+
+@Repository("UUserRole")
 public class UUserRole {
     /**
      *

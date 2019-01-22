@@ -14,6 +14,10 @@
     <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
     <result column="status" jdbcType="BIGINT" property="status" />
   </resultMap>
+  <resultMap id="selectUserByPageResultMap" type="core.bean.UUser">
+    <result column="nickname" property="nickname"/>
+    <result column="password" property="password"/>
+  </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--
       WARNING - @mbg.generated
@@ -64,5 +68,10 @@
     -->
     select id, nickname, password, email, create_time, last_login_time, status
     from u_user
+  </select>
+  <select id="selectUserBypage" resultMap="selectUserByPageResultMap">
+    select  *
+    from u_user
+    order by id
   </select>
 </mapper>
