@@ -11,7 +11,7 @@ public class UPermission {
      *
      * @mbg.generated
      */
-    private Long id;
+    private int id;
 
     /**
      *
@@ -39,7 +39,7 @@ public class UPermission {
      *
      * @mbg.generated
      */
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -51,7 +51,7 @@ public class UPermission {
      *
      * @mbg.generated
      */
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

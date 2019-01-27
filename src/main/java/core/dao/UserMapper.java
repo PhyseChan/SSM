@@ -15,4 +15,5 @@ public interface UserMapper {
     String getUserId(String username);
     User userByName(String username);
     List<User> selectUserBypage();
+
 }

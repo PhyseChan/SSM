@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 @Repository("UPermissionMapper")
 public interface UPermissionMapper {
 
-    int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(int id);
 
     int insert(UPermission record);
 
-    UPermission selectByPrimaryKey(Long id);
+    UPermission selectByPrimaryKey(int id);
 
     List<UPermission> selectAll();
 

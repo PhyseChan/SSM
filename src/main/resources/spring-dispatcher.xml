@@ -10,13 +10,17 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:include-filter>
     </context:component-scan>
 
+
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="prefix" value="/"></property>
+        <property name="suffix" value=".html"></property>
     </bean>
 
     <!--标准配置-->
     <nvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+
+    <import resource="classpath:applicationContext.xml"></import>
+    <import resource="classpath:applicationConfig-shiro.xml"></import>
 </beans>

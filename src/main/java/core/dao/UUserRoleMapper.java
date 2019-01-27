@@ -11,4 +11,6 @@ public interface UUserRoleMapper {
 
     List<UUserRole> selectAll();
     List<UUserRole> selectItemBypage();
+
+
 }

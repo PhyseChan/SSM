@@ -21,4 +21,8 @@ public class UUserServiceImpl {
         return pageInfo;
     }
 
+    public List<String> getUserRoleByUserId(int id){
+        return uUserMapper.getRolesByUserId(id);
+    }
+
 }
