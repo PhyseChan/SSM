@@ -9,10 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface UUserMapper {
 
     int deleteByPrimaryKey(int id);
-
-
     int insert(UUser record);
-
     UUser selectByPrimaryKey(int id);
     UUser loginByname(@Param("username")String name, @Param("pwd") String pwd);
     UUser getUserByName(@Param("username")String name);
