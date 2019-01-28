@@ -59,5 +59,11 @@ public class UserController {
         return "userneopage";
     }
 
+    @RequestMapping(value = "/testPermission" , produces = "appliction/json;charset=UTF-8")
+    @RequiresPermissions("user:insert")
+    public String testpermission (HttpServletRequest request){
+        return "testpage";
+    }
+
 
 }

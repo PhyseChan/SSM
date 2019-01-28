@@ -41,11 +41,13 @@
         <property name="filterChainDefinitions">
             <value>
                 /user = authc
+                /testPermission = anon
                 /reload = anon
                 /loginController.html = anon
                 /login = anon
                 /logout.html = anon
                 /userpage=authc
+                /testpage.html = perms["user:insert"]
                 /** = authc
             </value>
         </property>

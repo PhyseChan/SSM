@@ -20,4 +20,6 @@ public interface UUserMapper {
     int updateByPrimaryKey(UUser record);
      List<UUser> selectUserBypage();
     List<String> getRolesByUserId(@Param("id")int id);
+    List<String> getPermissionByUserId(@Param("id")int id);
+    int getIdByNameAndPwd(@Param("username")String username,@Param("password") String password);
 }

@@ -46,4 +46,5 @@ public interface URoleMapper {
      */
     int updateByPrimaryKey(URole record);
     List<String> getroles();
+    List<String> getPermission();
 }

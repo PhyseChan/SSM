@@ -17,15 +17,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class UserRealm extends AuthorizingRealm{
 
     @Autowired
     UUserMapper uUserMapper;
 
-    @Autowired
-    URoleMapper uRoleMapper;
+
 
     @Override
     public String getName(){
@@ -34,12 +35,26 @@ public class UserRealm extends AuthorizingRealm{
     //授权操作
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         UUser user= (UUser) principalCollection.getPrimaryPrincipal();
+        user.setId(uUserMapper.getIdByNameAndPwd(user.getNickname(),user.getPassword()));
         List<String> permissions=new ArrayList<String>();
         List<String> roles=new ArrayList<String>();
-        roles=uRoleMapper.getroles();
-
-
-        return null;
+        /*获取用户角色*/
+        roles=uUserMapper.getRolesByUserId(user.getId());
+        Set<String> roleSet=new HashSet<String>();
+        for(String role:roles){
+            roleSet.add(role);
+        }
+        /*获取用户所有权限*/
+        permissions = uUserMapper.getPermissionByUserId(user.getId());
+        Set<String> permissionSet=new HashSet<String>();
+        for (String permission:permissions){
+            System.out.println(permission);
+            permissionSet.add(permission);
+        }
+        SimpleAuthorizationInfo simpleAuthorizationInfo=new SimpleAuthorizationInfo();
+        simpleAuthorizationInfo.setStringPermissions(permissionSet);
+        simpleAuthorizationInfo.setRoles(roleSet);
+        return simpleAuthorizationInfo;
     }
     //认证操作
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
